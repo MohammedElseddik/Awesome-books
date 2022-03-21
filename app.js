@@ -16,23 +16,22 @@ const renderBook = () => {
     removeBtn.textContent = 'Remove';
 
     // check length add remove class visible
+    if (arrayBooks.length === 0) {
+        bookListUi.classList.remove('visible');
+        return;
+    } else {
+        console.log(arrayBooks.length)
+        bookListUi.classList.add('visible');
+    }
 
+    for (const key in arrayBooks[arrayBooks.length - 1]) {
+        const bookListElement = document.createElement('li');
+        bookListElement.textContent = arrayBooks[arrayBooks.length - 1][key];      
+        listUi.appendChild(bookListElement);
+    }
     
-   
-        
-        for (let i=arrayBooks.length; i<=arrayBooks.length;) {
-            for(const key in arrayBooks[i]) {
-                const bookListElement = document.createElement('li');
-                bookListElement.textContent = arrayBooks[i][key];      
-                listUi.appendChild(bookListElement);
-            }  
-            i = arrayBooks.length;
-        }
-
-        listUi.appendChild(removeBtn); 
-        bookListUi.appendChild(listUi);   
-
-    
+    listUi.appendChild(removeBtn); 
+    bookListUi.appendChild(listUi);    
 };
 
 // Create the Books array
