@@ -71,5 +71,5 @@ function getLocalStorage() {
   renderBook();
 }
 
-addBtn.addEventListener('click', addBookHandler);
 document.addEventListener('DOMContentLoaded', getLocalStorage);
+addBtn.addEventListener('click', addBookHandler);
