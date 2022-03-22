@@ -67,9 +67,11 @@ const removeBook = (removeBtnIndex) => {
 };
 
 function getLocalStorage() {
-  arrayBooks = JSON.parse(localStorage.getItem('BookList'));
-  renderBook();
+  if (JSON.parse(localStorage.getItem('BookList')) !== null) {
+    arrayBooks = JSON.parse(localStorage.getItem('BookList'));
+    renderBook();
+  }
 }
 
-document.addEventListener('DOMContentLoaded', getLocalStorage);
 addBtn.addEventListener('click', addBookHandler);
+document.addEventListener('DOMContentLoaded', getLocalStorage);
