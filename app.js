@@ -1,10 +1,36 @@
 const addBtn = document.getElementById('add-btn');
 const bookListUi = document.querySelector('.book-list-ui');
+const bookTitle = document.querySelector('#title');
+const bookAuthor = document.querySelector('#author');
+
 let arrayBooks = [];
+
+class Book {
+    // Creat book boject
+    constructor() { 
+        if (localStorage.getItem('BookList') !== null) {
+            this.bookObject = JSON.parse(localStorage.getItem('BookList'));
+        } else {
+            this.bookObject = [];
+        }
+    };
+
+    addBook(title, author) {
+        this.bookObject.push({title: title, author:author})
+        localStorage.setItem('BookList', JSON.stringify(this.bookObject));
+    }
+
+    removeBook() {
+
+    }
+}
+
+
 
 // Create a render function
 const renderBook = () => {
   // Create the book list
+  arrayBooks = JSON.parse(localStorage.getItem('BookList'));
   if (arrayBooks.length === 0) {
     bookListUi.classList.remove('visible');
     return;
@@ -37,27 +63,6 @@ function setLocalStorage() {
   localStorage.setItem('BookList', JSON.stringify(arrayBooks));
 }
 
-// Create the Books array
-const addBookHandler = () => {
-  const bookTitle = document.getElementById('title').value;
-  const bookAuthor = document.getElementById('author').value;
-
-  if (bookTitle.trim() === '' || bookAuthor.trim() === '') {
-    return;
-  }
-
-  const objectBook = {
-    bookTitle,
-    bookAuthor,
-  };
-
-  arrayBooks.push(objectBook);
-  setLocalStorage();
-  renderBook();
-};
-
-/* eslint-disable */
-
 const removeBook = (removeBtnIndex) => {
   const removeBtn = document.querySelector(`.r-btn${removeBtnIndex}`);
   arrayBooks.splice(removeBtnIndex, 1);
@@ -72,6 +77,20 @@ function getLocalStorage() {
     renderBook();
   }
 }
+
+const addBookHandler = () => {
+    if (bookTitle.value.trim() === '' || bookAuthor.value.trim() === '') {
+         return;
+    }
+
+    const book = new Book();
+    book.addBook(bookTitle.value, bookAuthor.value);
+
+    renderBook();
+
+}
+
+
 
 addBtn.addEventListener('click', addBookHandler);
 document.addEventListener('DOMContentLoaded', getLocalStorage);
