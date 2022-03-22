@@ -20,18 +20,29 @@ class Book {
         localStorage.setItem('BookList', JSON.stringify(this.bookObject));
     }
 
-    removeBook() {
+    removeBook(removeBtnIndex) {
 
+
+        console.log(removeBtnIndex)
+        const removeBtn = document.querySelector(`.r-btn${removeBtnIndex}`);
+        console.log(removeBtn);
+        removeBtn.parentElement.remove();
+        console.log('hello');
+        this.bookObject.splice(removeBtnIndex, 1);
+        console.log(this.bookObject.length)
+        renderBook();
+        setLocalStorage();
     }
 }
 
+const book = new Book();
 
 
 // Create a render function
 const renderBook = () => {
   // Create the book list
-  arrayBooks = JSON.parse(localStorage.getItem('BookList'));
-  if (arrayBooks.length === 0) {
+  //arrayBooks = JSON.parse(localStorage.getItem('BookList'));
+  if (book.bookObject.length === 0) {
     bookListUi.classList.remove('visible');
     return;
   }
@@ -39,13 +50,13 @@ const renderBook = () => {
 
   bookListUi.innerHTML = '';
 
-  arrayBooks.forEach((book, index) => {
+  book.bookObject.forEach((book, index) => {
     const listUi = document.createElement('ul');
     listUi.setAttribute('class', `list-ui ${index}`);
 
     const removeBtn = document.createElement('button');
     removeBtn.setAttribute('class', `remove-btn r-btn${index}`);
-    removeBtn.setAttribute('onclick', `removeBook(${index})`);
+    removeBtn.setAttribute('onclick', `remove(${index})`);
     removeBtn.textContent = 'Remove';
     /* eslint-disable */
     for (const key in book) {
@@ -63,12 +74,9 @@ function setLocalStorage() {
   localStorage.setItem('BookList', JSON.stringify(arrayBooks));
 }
 
-const removeBook = (removeBtnIndex) => {
-  const removeBtn = document.querySelector(`.r-btn${removeBtnIndex}`);
-  arrayBooks.splice(removeBtnIndex, 1);
-  removeBtn.parentElement.remove();
-  renderBook();
-  setLocalStorage();
+const remove = (index) => {
+    console.log(index);
+    book.removeBook(index);
 };
 
 function getLocalStorage() {
@@ -82,12 +90,8 @@ const addBookHandler = () => {
     if (bookTitle.value.trim() === '' || bookAuthor.value.trim() === '') {
          return;
     }
-
-    const book = new Book();
     book.addBook(bookTitle.value, bookAuthor.value);
-
     renderBook();
-
 }
 
 
