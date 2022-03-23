@@ -3,6 +3,15 @@ const bookListUi = document.querySelector('.book-list-ui');
 const bookTitle = document.querySelector('#title');
 const bookAuthor = document.querySelector('#author');
 
+const listNav = document.querySelector('.list');
+const addBookNav = document.querySelector('.add-list');
+const contactNav = document.querySelector('.contact');
+
+// const checkPages = () => {
+//   bookListUi.parentElement.classList.add('hidden');
+//   addBtn.parentElement.classList.remove('hidden');
+// };
+
 class Book {
   // Creat book boject
   constructor() {
@@ -38,9 +47,9 @@ class Book {
       removeBtn.setAttribute('onclick', `remove(${index})`);
       removeBtn.textContent = 'Remove';
       /* eslint-disable */
+      const bookListElement = document.createElement('li');
             for (const key in bookItem) {
-                const bookListElement = document.createElement('li');
-                bookListElement.textContent = bookItem[key];
+                bookListElement.textContent = `"${bookItem.title}" by ${bookItem.author}`;
                 listUi.appendChild(bookListElement);
             }
             listUi.appendChild(removeBtn);
@@ -80,8 +89,32 @@ const addBookHandler = () => {
          return;
     }
     book.addBook(bookTitle.value, bookAuthor.value);
+    bookTitle.value = "";
+    bookAuthor.value = "";
+    addBtn.parentElement.classList.add('hidden');
+    bookListUi.parentElement.classList.remove('hidden');
     book.renderBook();
 }
 
 addBtn.addEventListener('click', addBookHandler);
+
+listNav.addEventListener('click', () => {
+  addBtn.parentElement.classList.add('hidden');
+  bookListUi.parentElement.classList.remove('hidden');
+
+});
+
+addBookNav.addEventListener('click', () => {
+  bookListUi.parentElement.classList.add('hidden');
+  addBtn.parentElement.classList.remove('hidden');
+});
+
+
+
+// Add later the contact evetn listner
+
+// contactNav.addEventListener('click', () => {
+//   addBtn.parentElement.classList.add('hidden');
+// });
+
 document.addEventListener('DOMContentLoaded', getLocalStorage);

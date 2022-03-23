@@ -10,31 +10,31 @@
     <link rel="stylesheet" href="styles.css">
     <title>Awesome Books</title>
 </head>
-<body>
+<body onload="checkPages()"">
     <header class="header-nav">
         <nav class="nav-bar">
             <h3 class="brand-icon">Awesome Books</h3>
             <ul class="nav__menu">
                 <li class="list">List</li>
                 <li class="add-list">Add new</li>
-                <li class="Contact">Contact</li>
+                <li class="contact">Contact</li>
             </ul>
         </nav>
     </header>
     <main class="main-section">
         
         <div class="books-lists">
-            <h1>All awesome Books</h1>
+            <h2>All awesome Books</h2>
             <div class="book-list-ui"></div>
         </div>
 
-        <div class="books-inputs">
+        <div class="books-inputs hidden">
             <h2>Add a new book</h2>
             <input type="text" id="title" placeholder="Title">
             <input type="text" id="author" placeholder="Author">
             <button  id="add-btn">Add</button>
         </div>
-        
+
     </main>
     <footer id="copyright">
         <p class="copyright-paragraph">Copyright - Awesome Books 2022</p>

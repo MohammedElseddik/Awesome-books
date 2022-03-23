@@ -46,6 +46,7 @@ ul {
 .nav__menu li {
   margin-right: 20px;
   padding: 1rem;
+  cursor: pointer;
 }
 
 .add-list {
@@ -84,6 +85,7 @@ ul {
   justify-content: center;
   align-items: center;
   gap: 20px;
+  padding: 10rem 0;
 }
 
 .book-list-ui {
@@ -116,11 +118,13 @@ ul {
   gap: 20px;
   margin-bottom: 1rem;
   width: 50%;
-  padding: 0 20px;
+  padding: 10rem 0;
 }
 
 .books-inputs h2 {
   align-self: center;
+  padding: 20px;
+  font-weight: 700;
 }
 
 .remove-btn {
@@ -133,8 +137,13 @@ ul {
   box-shadow: 3px 5px #000;
   border: 4px solid #000;
   font-size: 1rem;
-  padding: 8px;
-  width: 15%;
+  padding: 1rem 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+#add-btn:hover {
+  transform: scale(1.1);
 }
 
 .hidden {
