@@ -6,11 +6,7 @@ const bookAuthor = document.querySelector('#author');
 const listNav = document.querySelector('.list');
 const addBookNav = document.querySelector('.add-list');
 const contactNav = document.querySelector('.contact');
-
-// const checkPages = () => {
-//   bookListUi.parentElement.classList.add('hidden');
-//   addBtn.parentElement.classList.remove('hidden');
-// };
+const contactSection = document.querySelector('.info-contact');
 
 class Book {
   // Creat book boject
@@ -99,22 +95,21 @@ const addBookHandler = () => {
 addBtn.addEventListener('click', addBookHandler);
 
 listNav.addEventListener('click', () => {
-  addBtn.parentElement.classList.add('hidden');
   bookListUi.parentElement.classList.remove('hidden');
-
+  addBtn.parentElement.classList.add('hidden');
+  contactSection.classList.add('hidden');
 });
 
 addBookNav.addEventListener('click', () => {
-  bookListUi.parentElement.classList.add('hidden');
   addBtn.parentElement.classList.remove('hidden');
+  bookListUi.parentElement.classList.add('hidden');
+  contactSection.classList.add('hidden');
 });
 
-
-
-// Add later the contact evetn listner
-
-// contactNav.addEventListener('click', () => {
-//   addBtn.parentElement.classList.add('hidden');
-// });
+contactNav.addEventListener('click', () => {
+  contactSection.classList.remove('hidden');
+  addBtn.parentElement.classList.add('hidden');
+  bookListUi.parentElement.classList.add('hidden');
+ });
 
 document.addEventListener('DOMContentLoaded', getLocalStorage);
