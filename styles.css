@@ -65,6 +65,14 @@ ul {
   gap: 20px;
 }
 
+.date {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding: 2rem 3.2rem 0 0;
+  font-size: 1.5rem;
+}
+
 .books-lists {
   display: flex;
   flex-direction: column;
@@ -110,7 +118,7 @@ ul {
   gap: 20px;
   margin-bottom: 1rem;
   width: 50%;
-  padding: 10rem 0;
+  padding: 5rem 0;
 }
 
 .books-input-title {
@@ -141,8 +149,8 @@ ul {
 #title,
 #author {
   width: 100%;
-  font-size: 1rem;
-  padding: 8px;
+  font-size: 1.5rem;
+  padding: 1rem;
   border: 4px solid black;
 }
 
@@ -165,7 +173,7 @@ ul {
   justify-content: center;
   width: 100%;
   gap: 20px;
-  padding: 10rem 0;
+  padding: 5rem 0;
   font-size: 2.5rem;
   font-weight: 400;
 }

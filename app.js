@@ -111,6 +111,19 @@ contactNav.addEventListener('click', () => {
   contactSection.classList.remove('hidden');
   addBtn.parentElement.classList.add('hidden');
   bookListUi.parentElement.classList.add('hidden');
- });
+});
+
+function getTime() {
+  const dateDiv = document.querySelector(".date");
+  dateDiv.textContent = new Date().toLocaleString('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric',
+  });
+}
+getTime();
 
 document.addEventListener('DOMContentLoaded', getLocalStorage);
