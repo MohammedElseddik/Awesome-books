@@ -115,13 +115,13 @@ contactNav.addEventListener('click', () => {
 
 function getTime() {
   const dateDiv = document.querySelector(".date");
-  dateDiv.textContent = new Date().toLocaleString('en-US', {
+  dateDiv.textContent = luxon.DateTime.now().toLocaleString({
+    year: 'numeric',
     month: 'long',
     day: 'numeric',
-    year: 'numeric',
     hour: 'numeric',
     minute: 'numeric',
-    second: 'numeric',
+    hours: 'false'
   });
 }
 getTime();
