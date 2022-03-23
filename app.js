@@ -121,9 +121,10 @@ function getTime() {
     day: 'numeric',
     hour: 'numeric',
     minute: 'numeric',
+    second: 'numeric',
     hours: 'false'
   });
 }
 getTime();
-
+setInterval(getTime, 1000);
 document.addEventListener('DOMContentLoaded', getLocalStorage);
