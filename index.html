@@ -6,21 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <title>Awesome Books</title>
 </head>
 <body>
-    <div class="container">
-        <h1>All awesome Books</h1>
-        <div class="book-list-ui"></div>
-        <h2>Add a new book</h2>
-        <div class="books-list">
-            <input type="text" id="title" placeholder="Title">
-            <input type="text" id="author" placeholder="Author">
-            <button  id="add-btn">Add</button>
+    <header class="header-nav">
+        <nav class="nav-bar">
+            <h3 class="brand-icon">Awesome Books</h3>
+            <ul class="nav__menu">
+                <li class="list">List</li>
+                <li class="add-list">Add new</li>
+                <li class="Contact">Contact</li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main-section">
+        <div class="container">
+            <h1>All awesome Books</h1>
+            <div class="book-list-ui"></div>
+            <h2>Add a new book</h2>
+            <div class="books-list">
+                <input type="text" id="title" placeholder="Title">
+                <input type="text" id="author" placeholder="Author">
+                <button  id="add-btn">Add</button>
+            </div>
         </div>
-    </div>
+    </main>
+    <footer>
+
+    </footer>
     <script src="app.js"></script>
 </body>
 </html>
