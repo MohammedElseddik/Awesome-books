@@ -77,13 +77,12 @@ ul {
   padding: 8px;
 }
 
-
 #add-btn {
   box-shadow: 3px 5px #000;
   border: 4px solid #000;
   font-size: 1rem;
   padding: 8px;
-  width:15%
+  width: 15%;
 }
 
 #title,
