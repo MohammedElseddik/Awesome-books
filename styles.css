@@ -6,12 +6,15 @@
   margin: 0;
 }
 
+html {
+  font-size: 63.5%;
+}
+
 body {
   background: white;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
-  font-weight: normal;
-  line-height: 18px;
+  font-family: 'Signika Negative', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 ul {
