@@ -89,6 +89,7 @@ const addBookHandler = () => {
     bookAuthor.value = "";
     addBtn.parentElement.classList.add('hidden');
     bookListUi.parentElement.classList.remove('hidden');
+    contactSection.classList.add('hidden');
     book.renderBook();
 }
 
