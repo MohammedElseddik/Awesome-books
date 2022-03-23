@@ -3,6 +3,11 @@ const bookListUi = document.querySelector('.book-list-ui');
 const bookTitle = document.querySelector('#title');
 const bookAuthor = document.querySelector('#author');
 
+const listNav = document.querySelector('.list');
+const addBookNav = document.querySelector('.add-list');
+const contactNav = document.querySelector('.contact');
+const contactSection = document.querySelector('.info-contact');
+
 class Book {
   // Creat book boject
   constructor() {
@@ -38,9 +43,9 @@ class Book {
       removeBtn.setAttribute('onclick', `remove(${index})`);
       removeBtn.textContent = 'Remove';
       /* eslint-disable */
+      const bookListElement = document.createElement('li');
             for (const key in bookItem) {
-                const bookListElement = document.createElement('li');
-                bookListElement.textContent = bookItem[key];
+                bookListElement.textContent = `"${bookItem.title}" by ${bookItem.author}`;
                 listUi.appendChild(bookListElement);
             }
             listUi.appendChild(removeBtn);
@@ -80,8 +85,46 @@ const addBookHandler = () => {
          return;
     }
     book.addBook(bookTitle.value, bookAuthor.value);
+    bookTitle.value = "";
+    bookAuthor.value = "";
+    addBtn.parentElement.classList.add('hidden');
+    bookListUi.parentElement.classList.remove('hidden');
+    contactSection.classList.add('hidden');
     book.renderBook();
 }
 
 addBtn.addEventListener('click', addBookHandler);
+
+listNav.addEventListener('click', () => {
+  bookListUi.parentElement.classList.remove('hidden');
+  addBtn.parentElement.classList.add('hidden');
+  contactSection.classList.add('hidden');
+});
+
+addBookNav.addEventListener('click', () => {
+  addBtn.parentElement.classList.remove('hidden');
+  bookListUi.parentElement.classList.add('hidden');
+  contactSection.classList.add('hidden');
+});
+
+contactNav.addEventListener('click', () => {
+  contactSection.classList.remove('hidden');
+  addBtn.parentElement.classList.add('hidden');
+  bookListUi.parentElement.classList.add('hidden');
+});
+
+function getTime() {
+  const dateDiv = document.querySelector(".date");
+  dateDiv.textContent = luxon.DateTime.now().toLocaleString({
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric',
+    hours: 'false'
+  });
+}
+getTime();
+setInterval(getTime, 1000);
 document.addEventListener('DOMContentLoaded', getLocalStorage);
