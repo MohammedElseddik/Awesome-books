@@ -8,14 +8,9 @@ This is a web site for storing books and authors.
 - CSS 
 - JavaScript
 
-## Desktop Version
+## Deployment
 
-> Comming Soon.
-
-## Mobile Version
-
-> Comming Soon.
-
+https://mohammedelseddik.github.io/Awesome-books/
 
 ## Getting Started
 
