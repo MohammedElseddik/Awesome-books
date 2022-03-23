@@ -123,3 +123,8 @@ ul {
   padding: 8px;
   border: 4px solid black;
 }
+
+#copyright p {
+  margin-left: 65px;
+}
+
